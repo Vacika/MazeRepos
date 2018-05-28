@@ -41,6 +41,7 @@ namespace MazeGame
         }
         private void StopGame()
         {
+            textBox3.BackColor = Control.DefaultBackColor;
             timer1.Stop();
             timer2.Stop();
             igra.stopwatch.Stop(); //STOPWATCH STOP
@@ -59,7 +60,7 @@ namespace MazeGame
         {
             StopGame();
             tt = igra.getTimespan();
-            MessageBox.Show("Congratiolations you have finished the game in "+ tt.ToString("mm\\:ss") + " and you have hit the blocks only " + igra.hits.ToString() + " times.");
+            MessageBox.Show("Congratiolations you have finished the game in " + tt.ToString("mm\\:ss") + " and you have hit the blocks only " + igra.hits.ToString() + " times.");
 
         }
         private void StartGame()
@@ -68,7 +69,7 @@ namespace MazeGame
             moveCursorToStart();
             igra.stopwatch.Start(); //START STOPERICA
 
-            tt = igra.getTimespan(); 
+            tt = igra.getTimespan();
 
             textBox1.Text = tt.ToString("mm\\:ss");
             textBox2.Text = igra.hits.ToString();
@@ -101,7 +102,7 @@ namespace MazeGame
         }
         public void hitBlock()
         {
-
+            
             bool alive = igra.snake.decreaseHP();
             if (!alive)
             {
@@ -115,6 +116,13 @@ namespace MazeGame
                 igra.hits += 1; // TUKA TREBA --HP
                 textBox2.Text = igra.hits.ToString();
                 textBox3.Text = igra.snake.hp.ToString();
+                if (igra.snake.hp <= 20)
+                    textBox3.BackColor = Color.Red;
+            
+                else
+                    textBox3.BackColor = DefaultBackColor;
+
+
             }
         }
         public void snakeDied()
@@ -161,6 +169,10 @@ namespace MazeGame
                 {
                     textBox3.Text = igra.snake.hp.ToString();
                     listBox1.Items.Add("You got rewarded +5hp for your endurance!");
+                    if (igra.snake.hp <= 20)
+                        textBox3.BackColor = Color.Red;
+                    else
+                        textBox3.BackColor = Control.DefaultBackColor;
                 }
             }
         }
@@ -190,7 +202,7 @@ namespace MazeGame
                 FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
                 ifrmt.Serialize(fs, igra);
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 MessageBox.Show("Imavme nekakov error. Ve molime predajte ja porakata do nadleznite: " + e.Message);
             }
@@ -203,25 +215,27 @@ namespace MazeGame
             timer1.Stop();
             timer2.Stop();
             IFormatter ifrmt = new BinaryFormatter();
-            OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Open your game!";
-            ofd.Filter = "Maze File (.maze)|*.maze";
+            OpenFileDialog ofd = new OpenFileDialog
+            {
+                Title = "Open your game!",
+                Filter = "Maze File (.maze)|*.maze"
+            };
             //try
             //{
-                if ((ofd.ShowDialog()) == DialogResult.OK)
-                {
-                    filename = ofd.FileName;
-                }
-                FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.None);
-                
-                this.igra = (Game)ifrmt.Deserialize(fs);
-                Cursor.Position = igra.snake.position;
-                startedgame = true;
-                
-                StartGame(igra);
-                updateInformation();
-                listBox1.Items.Add(String.Format("You loaded saved game {0} .", filename));
-                listBox1.Items.Add(String.Format("X:{0} Y:{1} HP:{2} Elapsed time:{3} Hits:{4}", igra.snake.position.X.ToString(), igra.snake.position.Y.ToString(), igra.snake.hp.ToString(), igra.getTimespan().ToString("mm\\:ss"), igra.hits.ToString()).ToString());
+            if ((ofd.ShowDialog()) == DialogResult.OK)
+            {
+                filename = ofd.FileName;
+            }
+            FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.None);
+
+            this.igra = (Game)ifrmt.Deserialize(fs);
+            Cursor.Position = igra.snake.position;
+            startedgame = true;
+
+            StartGame(igra);
+            updateInformation();
+            listBox1.Items.Add(String.Format("You loaded saved game {0} .", filename));
+            listBox1.Items.Add(String.Format("X:{0} Y:{1} HP:{2} Elapsed time:{3} Hits:{4}", igra.snake.position.X.ToString(), igra.snake.position.Y.ToString(), igra.snake.hp.ToString(), igra.getTimespan().ToString("mm\\:ss"), igra.hits.ToString()).ToString());
 
 
             //}
@@ -234,10 +248,16 @@ namespace MazeGame
         private void updateInformation()
         {
             textBox3.Text = igra.snake.hp.ToString();
+            if (igra.snake.hp <= 20)
+                textBox3.BackColor = Color.Red;
+            else
+                textBox3.BackColor = DefaultBackColor;
+
+
             textBox1.Text = igra.getTimespan().ToString("mm\\:ss");
             textBox2.Text = igra.hits.ToString();
         }
-       
+
         private void timer1_Tick(object sender, EventArgs e)
         {
 
@@ -256,6 +276,42 @@ namespace MazeGame
         {
             openGameDialog();
         }
+
+        private void changeBlockColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Color c;
+            ColorDialog cd = new ColorDialog();
+            try
+            {
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    c = cd.Color;
+                    foreach (Control k in panel1.Controls)
+                    {
+                        try
+                        {
+                            if (k.GetType() == typeof(Label))
+                            {
+                                k.BackColor = c;
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Error siten imame. Error description:" + ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    throw new Exception("Please pick one color!");
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+        }
+
         //private void pauseGame()
         //{
 

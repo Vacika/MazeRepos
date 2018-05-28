@@ -25,3 +25,4 @@ D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.
 D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
 D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.exe
 D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.pdb
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csprojResolveAssemblyReference.cache

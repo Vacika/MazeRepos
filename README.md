@@ -12,12 +12,14 @@
 <li> Timer to count time elapsed </li>
 <li> Implemented completely save game option </li>
 <li> Make objects Serializable</li>
- <li> Detailed event log</li> 
-
+<li> Detailed event log</li> 
+<li> Obstacle color changer</li>
 </ol>
 
 <b>To be implemented:</b>
 <ol>
+ <li> Event log serializable for every game </li>
+ <li> Pause functionality</li>
  <li> Add counter for wins/loses (Maybe will not be implemented!)</li>
  <li> Make a game start in 3 secs after loading</li>
  <li> Change label "FINISH" with some image</li>
