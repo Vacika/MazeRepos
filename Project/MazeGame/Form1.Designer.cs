@@ -162,9 +162,9 @@
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Enabled = false;
-            this.panel1.Location = new System.Drawing.Point(0, 42);
+            this.panel1.Location = new System.Drawing.Point(36, 42);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(470, 458);
+            this.panel1.Size = new System.Drawing.Size(497, 455);
             this.panel1.TabIndex = 0;
             this.panel1.MouseLeave += new System.EventHandler(this.panel1_MouseLeave);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -546,7 +546,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label37.Location = new System.Drawing.Point(163, 11);
+            this.label37.Location = new System.Drawing.Point(188, 11);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(157, 26);
             this.label37.TabIndex = 1;
@@ -560,9 +560,9 @@
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Controls.Add(this.button1);
             this.panel2.Controls.Add(this.label37);
-            this.panel2.Location = new System.Drawing.Point(476, 42);
+            this.panel2.Location = new System.Drawing.Point(550, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(470, 440);
+            this.panel2.Size = new System.Drawing.Size(510, 455);
             this.panel2.TabIndex = 2;
             // 
             // groupBox3
@@ -572,7 +572,7 @@
             this.groupBox3.Controls.Add(this.label47);
             this.groupBox3.Controls.Add(this.label48);
             this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Location = new System.Drawing.Point(234, 56);
+            this.groupBox3.Location = new System.Drawing.Point(259, 56);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(229, 111);
             this.groupBox3.TabIndex = 17;
@@ -631,7 +631,7 @@
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label43);
-            this.groupBox2.Location = new System.Drawing.Point(8, 56);
+            this.groupBox2.Location = new System.Drawing.Point(33, 56);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(208, 111);
             this.groupBox2.TabIndex = 16;
@@ -699,7 +699,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.listBox1);
-            this.groupBox1.Location = new System.Drawing.Point(8, 181);
+            this.groupBox1.Location = new System.Drawing.Point(33, 181);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(457, 204);
             this.groupBox1.TabIndex = 13;
@@ -721,7 +721,7 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(8, 391);
+            this.button1.Location = new System.Drawing.Point(33, 391);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(455, 42);
             this.button1.TabIndex = 6;
@@ -852,7 +852,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(958, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1060, 24);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -882,7 +882,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(958, 524);
+            this.ClientSize = new System.Drawing.Size(1060, 524);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
