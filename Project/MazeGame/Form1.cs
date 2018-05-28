@@ -143,7 +143,6 @@ namespace MazeGame
         private void label4_MouseEnter(object sender, EventArgs e)
         {
             hitBlock();
-
         }
 
         private void button1_Click(object sender, EventArgs e) //START button
@@ -154,8 +153,8 @@ namespace MazeGame
 
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
-            if (startedgame) // ako e vekje igrata startovana, da se izbegne da se dojde do label preku cheating t.e odnadvoresna strana
-                moveCursorToStart();
+            if (startedgame)// ako e vekje igrata startovana, da se izbegne da se dojde do label preku cheating t.e odnadvoresna strana
+               moveCursorToStart();
         }
 
 
