@@ -16,3 +16,12 @@ E:\xxFromDesktop\VS Denis\MazeGame\MazeGame\obj\Debug\MazeGame.csprojResolveAsse
 E:\xxFromDesktop\VS Denis\MazeGame\MazeGame\obj\Debug\MazeGame.Form1.resources
 E:\xxFromDesktop\VS Denis\MazeGame\MazeGame\obj\Debug\MazeGame.Properties.Resources.resources
 E:\xxFromDesktop\VS Denis\MazeGame\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.Cache
+D:\GitHub\MazeRepos\Project\MazeGame\bin\Debug\MazeGame.exe.config
+D:\GitHub\MazeRepos\Project\MazeGame\bin\Debug\MazeGame.exe
+D:\GitHub\MazeRepos\Project\MazeGame\bin\Debug\MazeGame.pdb
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.Form1.resources
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.Properties.Resources.resources
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.Cache
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.exe
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.pdb
