@@ -11,18 +11,18 @@ namespace MazeGame
     [Serializable]
     public class Game : ISerializable
     {
-        public Stopwatch stopwatch { get; set; }
         public int hits { get; set; }
         public Snake snake { get; set; }
-        public TimeSpan ts { get; set; } = new TimeSpan(); 
+        public TimeSpan ts { get; set; } 
+        public StringBuilder eventlog { get; set; }
         public Game()
         {
-            stopwatch = new Stopwatch();
             hits = 0;
             snake = new Snake();
             ts = new TimeSpan(0,0,0);
+            eventlog = new StringBuilder();
         }
-        public TimeSpan getTimespan()
+        public TimeSpan getTimespan(Stopwatch stopwatch)
         {
             return ts + stopwatch.Elapsed;
         }
@@ -31,16 +31,21 @@ namespace MazeGame
             hits = (int)info.GetValue("hits", typeof(int));
             snake = (Snake)info.GetValue("snake", typeof(Snake));
             ts = (TimeSpan)info.GetValue("ts",typeof(TimeSpan));
-            stopwatch = new Stopwatch();
+            eventlog = (StringBuilder)info.GetValue("eventlog", typeof(StringBuilder));
            
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            ts += stopwatch.Elapsed;
             info.AddValue("ts", ts);
             info.AddValue("hits", hits);
             info.AddValue("snake", snake);
+            info.AddValue("eventlog", eventlog);
+        }
+
+        public void addEvent(string poraka)
+        {
+            eventlog.Append(poraka + "\n");
         }
     }
 }
