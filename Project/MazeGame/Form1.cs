@@ -52,6 +52,7 @@ namespace MazeGame
             startedgame = false;
             panel1.Enabled = false;
             button1.Enabled = true;
+            button2.Enabled = true;
             igra = new Game();
 
 
@@ -66,6 +67,8 @@ namespace MazeGame
         private void StartGame()
         {
             StopGame();
+            panel1.Focus();
+
             moveCursorToStart();
             igra.stopwatch.Start(); //START STOPERICA
 
@@ -78,7 +81,7 @@ namespace MazeGame
             startedgame = true;
             panel1.Enabled = true;
             button1.Enabled = false;
-
+            button2.Enabled = false;
             timer1.Start();
             timer2.Start();
 
@@ -200,6 +203,7 @@ namespace MazeGame
 
                 FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
                 ifrmt.Serialize(fs, igra);
+                fs.Close();
             }
             catch (Exception e)
             {
@@ -228,6 +232,8 @@ namespace MazeGame
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.None);
 
             this.igra = (Game)ifrmt.Deserialize(fs);
+            fs.Close();
+
             Cursor.Position = igra.snake.position;
             startedgame = true;
 
@@ -309,6 +315,11 @@ namespace MazeGame
             {
                 MessageBox.Show(ee.Message);
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
         }
 
         //private void pauseGame()

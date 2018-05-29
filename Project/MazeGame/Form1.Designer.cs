@@ -74,19 +74,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label48 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label43 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label39 = new System.Windows.Forms.Label();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,14 +107,13 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -563,6 +564,42 @@
             this.panel2.Size = new System.Drawing.Size(470, 440);
             this.panel2.TabIndex = 2;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.label45);
+            this.groupBox3.Controls.Add(this.label47);
+            this.groupBox3.Controls.Add(this.label48);
+            this.groupBox3.Controls.Add(this.label44);
+            this.groupBox3.Location = new System.Drawing.Point(234, 56);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(225, 119);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Help";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.BackColor = System.Drawing.Color.LimeGreen;
+            this.label45.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label45.Location = new System.Drawing.Point(124, 51);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(95, 13);
+            this.label45.TabIndex = 8;
+            this.label45.Text = "Press R to RESET";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.label47.ForeColor = System.Drawing.Color.Beige;
+            this.label47.Location = new System.Drawing.Point(124, 25);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(95, 13);
+            this.label47.TabIndex = 14;
+            this.label47.Text = "Press S to SAVE   ";
+            // 
             // label48
             // 
             this.label48.AutoSize = true;
@@ -574,16 +611,89 @@
             this.label48.TabIndex = 15;
             this.label48.Text = "Press O to OPEN";
             // 
-            // label47
+            // label44
             // 
-            this.label47.AutoSize = true;
-            this.label47.BackColor = System.Drawing.SystemColors.HotTrack;
-            this.label47.ForeColor = System.Drawing.Color.Beige;
-            this.label47.Location = new System.Drawing.Point(113, 25);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(86, 13);
-            this.label47.TabIndex = 14;
-            this.label47.Text = "Press S to SAVE";
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.Color.Red;
+            this.label44.ForeColor = System.Drawing.Color.Beige;
+            this.label44.Location = new System.Drawing.Point(6, 51);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(87, 13);
+            this.label44.TabIndex = 7;
+            this.label44.Text = "Press P to STOP";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.label46);
+            this.groupBox2.Controls.Add(this.label39);
+            this.groupBox2.Controls.Add(this.textBox2);
+            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.label43);
+            this.groupBox2.Location = new System.Drawing.Point(8, 56);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(208, 119);
+            this.groupBox2.TabIndex = 16;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Details";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Enabled = false;
+            this.textBox3.ForeColor = System.Drawing.Color.YellowGreen;
+            this.textBox3.Location = new System.Drawing.Point(105, 18);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(73, 20);
+            this.textBox3.TabIndex = 10;
+            this.textBox3.Text = "100";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 21);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(59, 13);
+            this.label46.TabIndex = 9;
+            this.label46.Text = "Snake HP:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(6, 47);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(73, 13);
+            this.label39.TabIndex = 2;
+            this.label39.Text = "Time elapsed:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Location = new System.Drawing.Point(105, 75);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(73, 20);
+            this.textBox2.TabIndex = 5;
+            this.textBox2.Text = "0";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Enabled = false;
+            this.textBox1.Location = new System.Drawing.Point(105, 47);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(73, 20);
+            this.textBox1.TabIndex = 3;
+            this.textBox1.Text = "0";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(6, 74);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(53, 13);
+            this.label43.TabIndex = 4;
+            this.label43.Text = "Block hits";
             // 
             // groupBox1
             // 
@@ -599,22 +709,12 @@
             // 
             this.listBox1.Enabled = false;
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.Location = new System.Drawing.Point(12, 19);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBox1.Size = new System.Drawing.Size(439, 186);
             this.listBox1.TabIndex = 0;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Enabled = false;
-            this.textBox3.ForeColor = System.Drawing.Color.YellowGreen;
-            this.textBox3.Location = new System.Drawing.Point(105, 18);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(73, 20);
-            this.textBox3.TabIndex = 10;
-            this.textBox3.Text = "100";
             // 
             // button1
             // 
@@ -627,75 +727,6 @@
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(6, 21);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(59, 13);
-            this.label46.TabIndex = 9;
-            this.label46.Text = "Snake HP:";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.BackColor = System.Drawing.Color.LimeGreen;
-            this.label45.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label45.Location = new System.Drawing.Point(113, 78);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(95, 13);
-            this.label45.TabIndex = 8;
-            this.label45.Text = "Press R to RESET";
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.BackColor = System.Drawing.Color.Red;
-            this.label44.ForeColor = System.Drawing.Color.Beige;
-            this.label44.Location = new System.Drawing.Point(6, 78);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(87, 13);
-            this.label44.TabIndex = 7;
-            this.label44.Text = "Press P to STOP";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(105, 44);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(73, 20);
-            this.textBox2.TabIndex = 5;
-            this.textBox2.Text = "0";
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(6, 74);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(53, 13);
-            this.label43.TabIndex = 4;
-            this.label43.Text = "Block hits";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(105, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(73, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.Text = "0";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(6, 47);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(73, 13);
-            this.label39.TabIndex = 2;
-            this.label39.Text = "Time elapsed:";
             // 
             // timer2
             // 
@@ -826,33 +857,16 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // groupBox2
+            // button2
             // 
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.label46);
-            this.groupBox2.Controls.Add(this.label39);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.label43);
-            this.groupBox2.Location = new System.Drawing.Point(8, 56);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(208, 119);
-            this.groupBox2.TabIndex = 16;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Details";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label45);
-            this.groupBox3.Controls.Add(this.label47);
-            this.groupBox3.Controls.Add(this.label48);
-            this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Location = new System.Drawing.Point(234, 56);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(229, 119);
-            this.groupBox3.TabIndex = 17;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Help";
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(6, 88);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(202, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Clear Event Log";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // Form1
             // 
@@ -873,13 +887,13 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -964,6 +978,7 @@
         private System.Windows.Forms.ToolStripMenuItem changeBlockColorToolStripMenuItem;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
     }
 }
 
