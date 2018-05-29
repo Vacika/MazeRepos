@@ -22,7 +22,6 @@ namespace MazeGame
         bool startedgame = false;
         TimeSpan tt = new TimeSpan();
         //bool paused = false;
-        
 
 
         public Form1()
@@ -71,7 +70,6 @@ namespace MazeGame
             igra.stopwatch.Start(); //START STOPERICA
 
             tt = igra.getTimespan();
-            listBox1.Items.Clear();
 
             textBox1.Text = tt.ToString("mm\\:ss");
             textBox2.Text = igra.hits.ToString();
@@ -120,8 +118,10 @@ namespace MazeGame
                 textBox3.Text = igra.snake.hp.ToString();
                 if (igra.snake.hp <= 20)
                     textBox3.BackColor = Color.Red;
+            
                 else
                     textBox3.BackColor = DefaultBackColor;
+
 
             }
         }
@@ -154,11 +154,7 @@ namespace MazeGame
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
             if (startedgame)// ako e vekje igrata startovana, da se izbegne da se dojde do label preku cheating t.e odnadvoresna strana
-            {
-                moveCursorToStart();
-            }
-
-
+               moveCursorToStart();
         }
 
 
@@ -190,12 +186,6 @@ namespace MazeGame
             timer2.Stop();
             igra.stopwatch.Stop();
             IFormatter ifrmt = new BinaryFormatter();
-            StringBuilder sb = new StringBuilder();
-            foreach (string item in listBox1.Items)
-            {
-                sb.Append(item).Append("\n");
-            }
-            igra.events = sb;
             SaveFileDialog sfd = new SaveFileDialog
             {
                 Title = "Save your game!",
@@ -210,8 +200,6 @@ namespace MazeGame
 
                 FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
                 ifrmt.Serialize(fs, igra);
-                fs.Close();
-                
             }
             catch (Exception e)
             {
@@ -240,21 +228,14 @@ namespace MazeGame
             FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read, FileShare.None);
 
             this.igra = (Game)ifrmt.Deserialize(fs);
-
             Cursor.Position = igra.snake.position;
             startedgame = true;
 
             StartGame(igra);
             updateInformation();
-            listBox1.Items.Clear();
-            listBox1.Items.Add(String.Format("You loaded saved game: {0}", filename));
+            listBox1.Items.Add(String.Format("You loaded saved game {0} .", filename));
             listBox1.Items.Add(String.Format("X:{0} Y:{1} HP:{2} Elapsed time:{3} Hits:{4}", igra.snake.position.X.ToString(), igra.snake.position.Y.ToString(), igra.snake.hp.ToString(), igra.getTimespan().ToString("mm\\:ss"), igra.hits.ToString()).ToString());
-            fs.Close();
-            string[] events = igra.events.ToString().Split('\n');
-            foreach(string item in events)
-            {
-                listBox1.Items.Add(item); // 
-            }
+
 
             //}
             //catch (Exception e)
@@ -328,21 +309,6 @@ namespace MazeGame
             {
                 MessageBox.Show(ee.Message);
             }
-        }
-
-        private void newToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            StartGame();
-        }
-
-        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            saveGameDialog();
-        }
-
-        private void button2_Click(object sender, EventArgs e) //CLEAR EVENT LOG BUTTON
-        {
-            listBox1.Items.Clear();
         }
 
         //private void pauseGame()
