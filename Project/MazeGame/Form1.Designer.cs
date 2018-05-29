@@ -74,6 +74,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.help = new System.Windows.Forms.GroupBox();
             this.label50 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
@@ -93,7 +94,6 @@
             this.events = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -105,12 +105,6 @@
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeBlockColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.RefreshInfoTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
@@ -560,6 +554,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Controls.Add(this.help);
             this.panel2.Controls.Add(this.button2);
             this.panel2.Controls.Add(this.details);
@@ -568,8 +563,15 @@
             this.panel2.Controls.Add(this.label37);
             this.panel2.Location = new System.Drawing.Point(476, 42);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(470, 440);
+            this.panel2.Size = new System.Drawing.Size(470, 458);
             this.panel2.TabIndex = 2;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(8, 183);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(455, 32);
+            this.progressBar1.TabIndex = 18;
             // 
             // help
             // 
@@ -584,7 +586,6 @@
             this.help.TabIndex = 17;
             this.help.TabStop = false;
             this.help.Text = "Help";
-            this.help.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label50
             // 
@@ -644,7 +645,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(234, 154);
+            this.button2.Location = new System.Drawing.Point(234, 149);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 23);
             this.button2.TabIndex = 16;
@@ -749,9 +750,9 @@
             // events
             // 
             this.events.Controls.Add(this.listBox1);
-            this.events.Location = new System.Drawing.Point(8, 181);
+            this.events.Location = new System.Drawing.Point(8, 221);
             this.events.Name = "events";
-            this.events.Size = new System.Drawing.Size(457, 205);
+            this.events.Size = new System.Drawing.Size(457, 179);
             this.events.TabIndex = 13;
             this.events.TabStop = false;
             this.events.Text = "Events";
@@ -760,25 +761,22 @@
             // 
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 19);
+            this.listBox1.Location = new System.Drawing.Point(6, 20);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(439, 173);
+            this.listBox1.Size = new System.Drawing.Size(439, 147);
             this.listBox1.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(8, 392);
+            this.button1.Location = new System.Drawing.Point(8, 406);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(455, 41);
             this.button1.TabIndex = 6;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // timer2
-            // 
             // 
             // fileToolStripMenuItem
             // 
@@ -865,53 +863,11 @@
             this.changeBackgroundColorToolStripMenuItem.Text = "Change Background Color";
             this.changeBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.changeBackgroundColorToolStripMenuItem_Click);
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.contentsToolStripMenuItem,
-            this.indexToolStripMenuItem,
-            this.searchToolStripMenuItem,
-            this.toolStripSeparator5,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "&Help";
-            // 
-            // contentsToolStripMenuItem
-            // 
-            this.contentsToolStripMenuItem.Name = "contentsToolStripMenuItem";
-            this.contentsToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.contentsToolStripMenuItem.Text = "&Contents";
-            // 
-            // indexToolStripMenuItem
-            // 
-            this.indexToolStripMenuItem.Name = "indexToolStripMenuItem";
-            this.indexToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.indexToolStripMenuItem.Text = "&Index";
-            // 
-            // searchToolStripMenuItem
-            // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.searchToolStripMenuItem.Text = "&Search";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(119, 6);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
-            this.aboutToolStripMenuItem.Text = "&About...";
-            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.toolsToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.toolsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(958, 24);
@@ -934,7 +890,6 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -1008,7 +963,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.GroupBox events;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label48;
@@ -1021,12 +975,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem contentsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indexToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem changeBlockColorToolStripMenuItem;
         private System.Windows.Forms.GroupBox help;
@@ -1037,6 +985,7 @@
         private System.Windows.Forms.Label statuslabel;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.ToolStripMenuItem changeBackgroundColorToolStripMenuItem;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
