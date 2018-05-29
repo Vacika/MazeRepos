@@ -245,22 +245,17 @@ namespace MazeGame
         }
         private void updateInformation()
         {
-
             if (!startedgame)
             {
                 status = "Stopped..";
-                statuslabel.ForeColor = Color.Red;
-
             }
             else if (!paused)
             {
                 status = "Game is running";
-                statuslabel.ForeColor = Color.Green;
             }
             else
             {
                 status = "Paused game..";
-                statuslabel.ForeColor = Color.Blue;
             }
 
             textBox1.Text = igra.getTimespan(stopwatch).ToString("mm\\:ss");
