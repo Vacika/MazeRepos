@@ -75,6 +75,7 @@
             this.label37 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
@@ -107,7 +108,10 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statuslabel = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -118,6 +122,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.MistyRose;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.Finish);
             this.panel1.Controls.Add(this.label42);
@@ -566,24 +571,37 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label50);
             this.groupBox3.Controls.Add(this.button2);
             this.groupBox3.Controls.Add(this.label45);
             this.groupBox3.Controls.Add(this.label47);
             this.groupBox3.Controls.Add(this.label48);
             this.groupBox3.Controls.Add(this.label44);
-            this.groupBox3.Location = new System.Drawing.Point(234, 56);
+            this.groupBox3.Location = new System.Drawing.Point(234, 44);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(225, 119);
+            this.groupBox3.Size = new System.Drawing.Size(213, 131);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Help";
+            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
+            // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(6, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(201, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Clear Event Log";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label45
             // 
             this.label45.AutoSize = true;
             this.label45.BackColor = System.Drawing.Color.LimeGreen;
             this.label45.ForeColor = System.Drawing.Color.Cornsilk;
-            this.label45.Location = new System.Drawing.Point(124, 51);
+            this.label45.Location = new System.Drawing.Point(113, 51);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(95, 13);
             this.label45.TabIndex = 8;
@@ -594,7 +612,7 @@
             this.label47.AutoSize = true;
             this.label47.BackColor = System.Drawing.SystemColors.HotTrack;
             this.label47.ForeColor = System.Drawing.Color.Beige;
-            this.label47.Location = new System.Drawing.Point(124, 25);
+            this.label47.Location = new System.Drawing.Point(113, 25);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(95, 13);
             this.label47.TabIndex = 14;
@@ -624,15 +642,17 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label49);
+            this.groupBox2.Controls.Add(this.statuslabel);
             this.groupBox2.Controls.Add(this.textBox3);
             this.groupBox2.Controls.Add(this.label46);
             this.groupBox2.Controls.Add(this.label39);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label43);
-            this.groupBox2.Location = new System.Drawing.Point(8, 56);
+            this.groupBox2.Location = new System.Drawing.Point(8, 44);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(208, 119);
+            this.groupBox2.Size = new System.Drawing.Size(208, 133);
             this.groupBox2.TabIndex = 16;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Details";
@@ -669,7 +689,7 @@
             // textBox2
             // 
             this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(105, 75);
+            this.textBox2.Location = new System.Drawing.Point(105, 71);
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(73, 20);
@@ -700,7 +720,7 @@
             this.groupBox1.Controls.Add(this.listBox1);
             this.groupBox1.Location = new System.Drawing.Point(8, 181);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(457, 222);
+            this.groupBox1.Size = new System.Drawing.Size(457, 205);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Events";
@@ -713,16 +733,16 @@
             this.listBox1.Location = new System.Drawing.Point(12, 19);
             this.listBox1.Name = "listBox1";
             this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox1.Size = new System.Drawing.Size(439, 186);
+            this.listBox1.Size = new System.Drawing.Size(439, 173);
             this.listBox1.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(8, 410);
+            this.button1.Location = new System.Drawing.Point(8, 392);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(455, 23);
+            this.button1.Size = new System.Drawing.Size(455, 41);
             this.button1.TabIndex = 6;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -737,6 +757,7 @@
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
             this.toolStripSeparator,
             this.toolStripSeparator1,
             this.toolStripSeparator2,
@@ -751,8 +772,9 @@
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -760,29 +782,29 @@
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(149, 6);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(143, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // toolsToolStripMenuItem
@@ -857,16 +879,42 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button2
+            // saveToolStripMenuItem
             // 
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(6, 88);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(202, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Clear Event Log";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // statuslabel
+            // 
+            this.statuslabel.AutoSize = true;
+            this.statuslabel.ForeColor = System.Drawing.Color.Red;
+            this.statuslabel.Location = new System.Drawing.Point(102, 100);
+            this.statuslabel.Name = "statuslabel";
+            this.statuslabel.Size = new System.Drawing.Size(50, 13);
+            this.statuslabel.TabIndex = 12;
+            this.statuslabel.Text = "Stopped.";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(6, 100);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(69, 13);
+            this.label49.TabIndex = 13;
+            this.label49.Text = "Game status:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.BackColor = System.Drawing.Color.BlueViolet;
+            this.label50.ForeColor = System.Drawing.Color.Cornsilk;
+            this.label50.Location = new System.Drawing.Point(60, 74);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(94, 13);
+            this.label50.TabIndex = 17;
+            this.label50.Text = "Press K to PAUSE";
             // 
             // Form1
             // 
@@ -881,7 +929,6 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -979,6 +1026,10 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label statuslabel;
+        private System.Windows.Forms.Label label50;
     }
 }
 

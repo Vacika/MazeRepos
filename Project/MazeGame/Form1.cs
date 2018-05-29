@@ -22,9 +22,9 @@ namespace MazeGame
         Game igra;
         string filename = "";
         bool startedgame;
-        //bool paused = false;
-
-
+        bool paused = false;
+        string status = "Stopped..";
+       
         public Form1()
         {
             InitializeComponent();
@@ -33,7 +33,6 @@ namespace MazeGame
             stopwatch = new Stopwatch();
             igra = new Game();
             startedgame = false;
-
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
         {
@@ -41,13 +40,15 @@ namespace MazeGame
             else if (e.KeyCode == Keys.R) { StartGame(); }     // R e za Restart
             else if (e.KeyCode == Keys.S && startedgame) { saveGameDialog(); } // S e za SAVE
             else if (e.KeyCode == Keys.O) { openGameDialog(); } // O e za open
-
+            else if (e.KeyCode == Keys.K && startedgame) { PauseGame(); } // K e za PauseGame
         }
         private void StopGame()
         {
             textBox3.BackColor = DefaultBackColor;
             timer1.Stop();
             timer2.Stop();
+            status = "Stopped...";
+
             stopwatch.Stop(); //STOPWATCH STOP
             igra.ts += stopwatch.Elapsed;
             stopwatch.Reset();
@@ -56,11 +57,8 @@ namespace MazeGame
             textBox3.Text = "100";
             startedgame = false;
             panel1.Enabled = false;
-            button1.Enabled = true;
-            button2.Enabled = true;
+            panel2.Enabled = true;
             igra = new Game();
-
-
         }
         private void Finish_MouseEnter(object sender, EventArgs e)
         {
@@ -71,7 +69,7 @@ namespace MazeGame
         private void StartGame()
         {
             StopGame();
-
+            status = "Running game..";
             moveCursorToStart();
             stopwatch.Start(); //START STOPERICA
             updateInformation();
@@ -79,9 +77,7 @@ namespace MazeGame
             startedgame = true;
             panel1.Focus();
             panel1.Enabled = true;
-            button1.Enabled = false;
-            button2.Enabled = false;
-
+            panel2.Enabled = false;
 
             timer1.Start();
             timer2.Start();
@@ -91,14 +87,14 @@ namespace MazeGame
         {
             StopGame();
             igra = ig;
+            status = "Running game..";
             moveCursorToStart();
             stopwatch.Start(); //START STOPERICA
 
             updateInformation();
             startedgame = true;
             panel1.Enabled = true;
-            button1.Enabled = false;
-            button2.Enabled = false;
+            panel2.Enabled = false;
 
             timer1.Start();
             timer2.Start();
@@ -138,6 +134,10 @@ namespace MazeGame
             {
                 StartGame();
             }
+            else
+            {
+                Close();
+            }
 
         }
         private void moveCursorToStart()
@@ -150,43 +150,19 @@ namespace MazeGame
         {
             hitBlock();
         }
-
         private void button1_Click(object sender, EventArgs e) //START button
         {
             StartGame();
             listBox1.Items.Add("You have started new game!");
         }
-
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
             if (startedgame)// ako e vekje igrata startovana, da se izbegne da se dojde do label preku cheating t.e odnadvoresna strana
                 moveCursorToStart();
         }
-
-
-
-        private void timer2_Tick(object sender, EventArgs e) // Timer za dodavanje +5 hp na sekoj 5 sekundi
-        {
-
-            if (startedgame)
-            {
-                if (igra.snake.addHP())
-                {
-                    textBox3.Text = igra.snake.hp.ToString();
-                    listBox1.Items.Add("You got rewarded +5hp for your endurance!");
-                    igra.addEvent("You got rewarded +5hp for your endurance!");
-                    if (igra.snake.hp <= 20)
-                        textBox3.BackColor = Color.Red;
-                    else
-                        textBox3.BackColor = Control.DefaultBackColor;
-                }
-            }
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-
         private void saveGameDialog()
         {
             timer1.Stop();
@@ -264,37 +240,49 @@ namespace MazeGame
 
         }
         private void updateInformation()
-        {
-            textBox3.Text = igra.snake.hp.ToString();
-            if (igra.snake.hp <= 20)
-                textBox3.BackColor = Color.Red;
-            else
-                textBox3.BackColor = DefaultBackColor;
+        {        
+                textBox3.Text = igra.snake.hp.ToString();
+                if (igra.snake.hp <= 20)
+                    textBox3.BackColor = Color.Red;
+                else
+                    textBox3.BackColor = DefaultBackColor;
 
-
-            textBox1.Text = igra.getTimespan(stopwatch).ToString("mm\\:ss");
-            textBox2.Text = igra.hits.ToString();
+                textBox1.Text = igra.getTimespan(stopwatch).ToString("mm\\:ss");
+                textBox2.Text = igra.hits.ToString();
+                statuslabel.Text = status.ToString();
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
-
             updateInformation();
+        }
+        private void timer2_Tick(object sender, EventArgs e) // Timer za dodavanje +5 hp na sekoj 5 sekundi
+        {
+            if (startedgame && paused==false)
+            {
+                if (igra.snake.addHP())
+                {
+                    textBox3.Text = igra.snake.hp.ToString();
+                    listBox1.Items.Add("You got rewarded +5hp for your endurance!");
+                    igra.addEvent("You got rewarded +5hp for your endurance!");
+                    if (igra.snake.hp <= 20)
+                        textBox3.BackColor = Color.Red;
+                    else
+                        textBox3.BackColor = Control.DefaultBackColor;
+                }
+            }
         }
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-            if (startedgame)
+            if (startedgame && paused==false)
             {
                 igra.snake.position = e.Location;
 
             }
         }
-
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openGameDialog();
         }
-
         private void changeBlockColorToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Color c;
@@ -329,21 +317,43 @@ namespace MazeGame
                 MessageBox.Show(ee.Message);
             }
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
         }
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
 
-        //private void pauseGame()
-        //{
+        } // add tooltip here!!
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            button1_Click(sender, e);
+        } 
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveGameDialog();
+        }
 
-        //    if(!paused) // ako ne e pauzirano, togas pauziraj
-        //    {
-        //        paused = true;
+        private void PauseGame()
+        {
+            if(startedgame)
+            {
+                paused = !paused; // ako paused==false --> paused=true
+                if (paused)
+                {
+                    status = "Paused game..";
+                    stopwatch.Stop(); // pauzira stoperica vreme
+                    panel1.Enabled = false;
+                }
+                else
+                {
+                    status = "Running game..";
+                    stopwatch.Start();
+                    panel1.Enabled = true;
+                }
+            }
 
-        //    }
-        //}
+        }
 
     }
 }
