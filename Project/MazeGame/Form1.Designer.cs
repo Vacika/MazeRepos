@@ -76,11 +76,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.help = new System.Windows.Forms.GroupBox();
             this.label50 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.label45 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             this.details = new System.Windows.Forms.GroupBox();
             this.label49 = new System.Windows.Forms.Label();
             this.statuslabel = new System.Windows.Forms.Label();
@@ -112,6 +112,7 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.changeBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.help.SuspendLayout();
@@ -596,17 +597,6 @@
             this.label50.TabIndex = 17;
             this.label50.Text = "Press P to PAUSE";
             // 
-            // button2
-            // 
-            this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(234, 154);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(213, 23);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Clear Event Log";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // label45
             // 
             this.label45.AutoSize = true;
@@ -650,6 +640,17 @@
             this.label44.Size = new System.Drawing.Size(87, 13);
             this.label44.TabIndex = 7;
             this.label44.Text = "Press К to STOP";
+            // 
+            // button2
+            // 
+            this.button2.ForeColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(234, 154);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(213, 23);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "Clear Event Log";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // details
             // 
@@ -757,12 +758,10 @@
             // 
             // listBox1
             // 
-            this.listBox1.Enabled = false;
             this.listBox1.FormattingEnabled = true;
             this.listBox1.HorizontalScrollbar = true;
             this.listBox1.Location = new System.Drawing.Point(12, 19);
             this.listBox1.Name = "listBox1";
-            this.listBox1.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.listBox1.Size = new System.Drawing.Size(439, 173);
             this.listBox1.TabIndex = 0;
             // 
@@ -847,7 +846,8 @@
             // toolsToolStripMenuItem
             // 
             this.toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.changeBlockColorToolStripMenuItem});
+            this.changeBlockColorToolStripMenuItem,
+            this.changeBackgroundColorToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             this.toolsToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.toolsToolStripMenuItem.Text = "&Tools";
@@ -855,7 +855,7 @@
             // changeBlockColorToolStripMenuItem
             // 
             this.changeBlockColorToolStripMenuItem.Name = "changeBlockColorToolStripMenuItem";
-            this.changeBlockColorToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.changeBlockColorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.changeBlockColorToolStripMenuItem.Text = "Change Block Color";
             this.changeBlockColorToolStripMenuItem.Click += new System.EventHandler(this.changeBlockColorToolStripMenuItem_Click);
             // 
@@ -915,6 +915,13 @@
             // timer1
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // changeBackgroundColorToolStripMenuItem
+            // 
+            this.changeBackgroundColorToolStripMenuItem.Name = "changeBackgroundColorToolStripMenuItem";
+            this.changeBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.changeBackgroundColorToolStripMenuItem.Text = "Change Background Color";
+            this.changeBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.changeBackgroundColorToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -1030,6 +1037,7 @@
         private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label statuslabel;
         private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.ToolStripMenuItem changeBackgroundColorToolStripMenuItem;
     }
 }
 

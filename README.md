@@ -14,15 +14,17 @@
 <li> Make objects Serializable</li>
 <li> Detailed event log</li> 
 <li> Obstacle color changer</li>
+<li> Background color changer</li>
+<li> Fully functional menu strip</li>
 </ol>
 
 <b>To be implemented:</b>
 <ol>
- <li> Event log serializable for every game </li>
- <li> Pause functionality</li>
+ <li> Event log serializable for every game  <B> DONE </B></li>
+ <li> Pause functionality <B> PARTIALY DONE </B> (Timers need to be paused!)</li> 
  <li> Add counter for wins/loses (Maybe will not be implemented!)</li>
  <li> Make a game start in 3 secs after loading</li>
  <li> Change label "FINISH" with some image</li>
  <li> Add few other maps</li>
- <li> Complete menustrip control </li>
+ <li> Complete menustrip control <b> DONE</b></li>
 </ol>

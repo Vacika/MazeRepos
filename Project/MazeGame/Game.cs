@@ -13,13 +13,13 @@ namespace MazeGame
     {
         public int hits { get; set; }
         public Snake snake { get; set; }
-        public TimeSpan ts { get; set; } 
+        public TimeSpan ts { get; set; }
         public StringBuilder eventlog { get; set; }
         public Game()
         {
             hits = 0;
             snake = new Snake();
-            ts = new TimeSpan(0,0,0);
+            ts = new TimeSpan(0, 0, 0);
             eventlog = new StringBuilder();
         }
         public TimeSpan getTimespan(Stopwatch stopwatch)
@@ -30,9 +30,9 @@ namespace MazeGame
         {
             hits = (int)info.GetValue("hits", typeof(int));
             snake = (Snake)info.GetValue("snake", typeof(Snake));
-            ts = (TimeSpan)info.GetValue("ts",typeof(TimeSpan));
+            ts = (TimeSpan)info.GetValue("ts", typeof(TimeSpan));
             eventlog = (StringBuilder)info.GetValue("eventlog", typeof(StringBuilder));
-           
+
         }
 
         public void GetObjectData(SerializationInfo info, StreamingContext context)

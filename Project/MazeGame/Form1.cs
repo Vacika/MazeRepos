@@ -103,14 +103,14 @@ namespace MazeGame
             if (!alive)
             {
 
-                listBox1.Items.Add("Your snake has died. Your time:" + igra.getTimespan(stopwatch).ToString("mm\\:ss"));
-                igra.addEvent("Your snake has died. Your time:" + igra.getTimespan(stopwatch).ToString("mm\\:ss"));
+                listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "Your snake has died. Your time:" + igra.getTimespan(stopwatch).ToString("mm\\:ss"));
+                igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "Your snake has died. Your time:" + igra.getTimespan(stopwatch).ToString("mm\\:ss"));
                 snakeDied();
             }
             else
             {
-                listBox1.Items.Add("You hit your snake in a block! Be careful! -20hp!");
-                igra.addEvent("You hit your snake in a block! Be careful! -20hp!");
+                listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "You hit your snake in a block! Be careful! -20hp!");
+                igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "You hit your snake in a block! Be careful! -20hp!");
                 igra.hits += 1; // TUKA TREBA --HP
                 textBox2.Text = igra.hits.ToString();
                 textBox3.Text = igra.snake.hp.ToString();
@@ -144,13 +144,14 @@ namespace MazeGame
         }
         private void label4_MouseEnter(object sender, EventArgs e)
         {
-            if(startedgame)
+            if (startedgame)
                 hitBlock();
         }
         private void button1_Click(object sender, EventArgs e) //START button
         {
             StartGame();
-            listBox1.Items.Add("You have started new game!");
+            listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "You have started new game!");
+            igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "You have started new game!");
         }
         private void panel1_MouseLeave(object sender, EventArgs e)
         {
@@ -182,7 +183,7 @@ namespace MazeGame
                 }
                 else
                 {
-                    
+
                     throw new Exception("Nevalidni argumenti za save opcijata..");
                 }
                 FileStream fs = new FileStream(filename, FileMode.Create, FileAccess.Write, FileShare.None);
@@ -217,13 +218,13 @@ namespace MazeGame
 
                 this.igra = (Game)ifrmt.Deserialize(fs);
                 fs.Close();
-    
+
 
                 StartGame(igra);
                 startedgame = true;
                 updateInformation();
                 listBox1.Items.Clear();
-                listBox1.Items.Add(String.Format("You loaded saved game {0} .", filename));
+                listBox1.Items.Add(String.Format("[" + DateTime.Now.ToString() + "]: " + "You loaded saved game {0} .", filename));
                 listBox1.Items.Add(String.Format("X:{0} Y:{1} HP:{2} Elapsed time:{3} Hits:{4}", igra.snake.position.X.ToString(), igra.snake.position.Y.ToString(), igra.snake.hp.ToString(), igra.getTimespan(stopwatch).ToString("mm\\:ss"), igra.hits.ToString()).ToString());
                 foreach (string item in igra.eventlog.ToString().Split('\n'))
                 {
@@ -237,24 +238,26 @@ namespace MazeGame
             }
             catch (Exception e)
             {
+                listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "Error: " + e.Message);
                 MessageBox.Show("Imavme nekakov error. Ve molime predajte ja porakata do nadleznite: " + e.Message);
             }
 
         }
         private void updateInformation()
         {
-            if (startedgame && !paused)
-            {
-                status = "Game is running";
-            }
-            if (startedgame && paused)
-            {
-                status = "Paused game..";
-            }
             if (!startedgame)
             {
                 status = "Stopped..";
             }
+            else if (!paused)
+            {
+                status = "Game is running";
+            }
+            else
+            {
+                status = "Paused game..";
+            }
+
             textBox1.Text = igra.getTimespan(stopwatch).ToString("mm\\:ss");
             textBox2.Text = igra.hits.ToString();
             statuslabel.Text = status.ToString();
@@ -285,8 +288,8 @@ namespace MazeGame
                 if (igra.snake.addHP())
                 {
                     textBox3.Text = igra.snake.hp.ToString();
-                    listBox1.Items.Add("You got rewarded +5hp for your endurance!");
-                    igra.addEvent("You got rewarded +5hp for your endurance!");
+                    listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "You got rewarded +5hp for your endurance!");
+                    igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "You got rewarded +5hp for your endurance!");
                     if (igra.snake.hp <= 20)
                         textBox3.BackColor = Color.Red;
                     else
@@ -340,6 +343,27 @@ namespace MazeGame
                 MessageBox.Show(ee.Message);
             }
         }
+        private void changeBackgroundColorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Color c;
+            ColorDialog cd = new ColorDialog();
+            try
+            {
+                if (cd.ShowDialog() == DialogResult.OK)
+                {
+                    c = cd.Color;
+                    panel1.BackColor = c;
+                }
+                else
+                {
+                    throw new Exception("Please pick one color!");
+                }
+            }
+            catch (Exception ee)
+            {
+                MessageBox.Show(ee.Message);
+            }
+        }
         private void button2_Click(object sender, EventArgs e)
         {
             listBox1.Items.Clear();
@@ -356,7 +380,6 @@ namespace MazeGame
         {
             saveGameDialog();
         }
-
         private void PauseGame()
         {
             if (startedgame)
@@ -366,6 +389,8 @@ namespace MazeGame
                 {
                     status = "Paused game..";
                     stopwatch.Stop(); // pauzira stoperica vreme
+                    listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "Game paused.");
+                    igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "Game paused.");
                     enablePanel2Controls();
                 }
                 else
@@ -376,10 +401,11 @@ namespace MazeGame
                     Cursor.Position = PointToScreen(startingPoint);
                     stopwatch.Start();
                     disablePanel2Controls();
+                    listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "Game unpaused.");
+                    igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "Game unpaused.");
                 }
             }
 
         }
-
     }
 }
