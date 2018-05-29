@@ -20,8 +20,9 @@
 
 <b>To be implemented:</b>
 <ol>
+ <li> Make cursor not call MoveCursorToStart() function after hitting block!</li>
  <li> Event log serializable for every game  <B> DONE </B></li>
- <li> Pause functionality <B> PARTIALY DONE </B> (Timers need to be paused!)</li> 
+ <li> Pause functionality <B> DONE </B> </li> 
  <li> Add counter for wins/loses (Maybe will not be implemented!)</li>
  <li> Make a game start in 3 secs after loading</li>
  <li> Change label "FINISH" with some image</li>
