@@ -22,16 +22,17 @@ namespace MazeGame
         Game igra;
         string filename = "";
         bool startedgame;
-        bool paused = false;
-        string status = "Stopped..";
+        bool paused;
+        string status;
 
         public Form1()
         {
             InitializeComponent();
-            timer2.Interval = 5000;
-            timer1.Interval = 1000;
+            RefreshInfoTimer.Interval = 1000;
             stopwatch = new Stopwatch();
             igra = new Game();
+            paused = false;
+            status = "Stopped..";
             startedgame = false;
         }
         private void Form1_KeyUp(object sender, KeyEventArgs e)
@@ -55,12 +56,12 @@ namespace MazeGame
             enablePanel2Controls();
             igra = new Game();
             status = "Stopped...";
-            timer1.Stop();
-            timer2.Stop();
+            RefreshInfoTimer.Stop();
             updateInformation();
 
 
         }
+
         private void Finish_MouseEnter(object sender, EventArgs e)
         {
 
@@ -77,8 +78,7 @@ namespace MazeGame
             startedgame = true;
             panel1.Enabled = true;
             disablePanel2Controls();
-            timer1.Start();
-            timer2.Start();
+            RefreshInfoTimer.Start();
         }
         private void StartGame(Game ig)
         {
@@ -92,8 +92,7 @@ namespace MazeGame
             panel1.Enabled = true;
             disablePanel2Controls();
 
-            timer1.Start();
-            timer2.Start();
+            RefreshInfoTimer.Start();
 
         }
         public void hitBlock()
@@ -164,8 +163,8 @@ namespace MazeGame
         private void saveGameDialog()
         {
             startedgame = false;
-            timer1.Stop();
-            timer2.Stop();
+            RefreshInfoTimer.Stop();
+
             stopwatch.Stop();
             igra.ts += stopwatch.Elapsed;
             stopwatch.Reset();
@@ -200,8 +199,7 @@ namespace MazeGame
         public void openGameDialog()
         {
             StopGame();
-            timer1.Stop();
-            timer2.Stop();
+            RefreshInfoTimer.Stop();
             IFormatter ifrmt = new BinaryFormatter();
             OpenFileDialog ofd = new OpenFileDialog
             {
@@ -277,25 +275,31 @@ namespace MazeGame
             panel2.Enabled = true;
             panel1.Enabled = false;
         }
-        private void timer1_Tick(object sender, EventArgs e)
+        private void RefreshInfoTimer_Tick(object sender, EventArgs e) //timer na 300 sec sto pravi refresh + hp dodava
         {
-            updateInformation();
-        }
-        private void timer2_Tick(object sender, EventArgs e) // Timer za dodavanje +5 hp na sekoj 5 sekundi
-        {
-            if (startedgame && paused == false)
+            if (!paused)
             {
-                if (igra.snake.addHP())
-                {
-                    textBox3.Text = igra.snake.hp.ToString();
-                    listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "You got rewarded +5hp for your endurance!");
-                    igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "You got rewarded +5hp for your endurance!");
-                    if (igra.snake.hp <= 20)
-                        textBox3.BackColor = Color.Red;
-                    else
-                        textBox3.BackColor = Control.DefaultBackColor;
-                }
+                TimeSpan pom = stopwatch.Elapsed + igra.ts; // pominati sekundi  + igra elapsed(vo slucaj da e saved game loaded)
+                if ((int)pom.TotalSeconds % 5 == 0) // sekoj 5 sekundi da dodava HP
+                    AddHpToSnake();
+
+                updateInformation();
             }
+        }
+
+        private void AddHpToSnake() // Timer za dodavanje +5 hp na sekoj 5 sekundi
+        {
+            if (igra.snake.addHP())
+            {
+                textBox3.Text = igra.snake.hp.ToString();
+                listBox1.Items.Add("[" + DateTime.Now.ToString() + "]: " + "You got rewarded +5hp for your endurance!");
+                igra.addEvent("[" + DateTime.Now.ToString() + "]: " + "You got rewarded +5hp for your endurance!");
+                if (igra.snake.hp <= 20)
+                    textBox3.BackColor = Color.Red;
+                else
+                    textBox3.BackColor = Control.DefaultBackColor;
+            }
+
         }
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {

@@ -104,6 +104,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changeBlockColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.changeBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.indexToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,8 +112,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.changeBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.RefreshInfoTimer = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.help.SuspendLayout();
@@ -779,7 +779,6 @@
             // 
             // timer2
             // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
             // 
             // fileToolStripMenuItem
             // 
@@ -859,6 +858,13 @@
             this.changeBlockColorToolStripMenuItem.Text = "Change Block Color";
             this.changeBlockColorToolStripMenuItem.Click += new System.EventHandler(this.changeBlockColorToolStripMenuItem_Click);
             // 
+            // changeBackgroundColorToolStripMenuItem
+            // 
+            this.changeBackgroundColorToolStripMenuItem.Name = "changeBackgroundColorToolStripMenuItem";
+            this.changeBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
+            this.changeBackgroundColorToolStripMenuItem.Text = "Change Background Color";
+            this.changeBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.changeBackgroundColorToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -912,16 +918,9 @@
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // timer1
+            // RefreshInfoTimer
             // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // changeBackgroundColorToolStripMenuItem
-            // 
-            this.changeBackgroundColorToolStripMenuItem.Name = "changeBackgroundColorToolStripMenuItem";
-            this.changeBackgroundColorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.changeBackgroundColorToolStripMenuItem.Text = "Change Background Color";
-            this.changeBackgroundColorToolStripMenuItem.Click += new System.EventHandler(this.changeBackgroundColorToolStripMenuItem_Click);
+            this.RefreshInfoTimer.Tick += new System.EventHandler(this.RefreshInfoTimer_Tick);
             // 
             // Form1
             // 
@@ -1004,7 +1003,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer RefreshInfoTimer;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.TextBox textBox3;
