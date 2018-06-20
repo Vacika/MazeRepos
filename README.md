@@ -1,8 +1,8 @@
 # ***Maze Game***
 Windows Forms Project by:
-Nikola Krstevski
-Vasko Jovanovski
-Kristina Petrusevska 151504
+Nikola Krstevski		122044
+Vasko Jovanovski		151155
+Kristina Petrusevska 	151504
 
 ## 1.Опис на апликацијата 
 Tемата на проектот кој го изработивме е апликација за играта ** Maze Game ** - игра со движење на маусот кон целта-Finish. Целта на играта е да не ги допреме препреките со курсорот за да стигнеме до целта.

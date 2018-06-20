@@ -107,6 +107,7 @@
             this.changeBackgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.RefreshInfoTimer = new System.Windows.Forms.Timer(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.help.SuspendLayout();
@@ -545,7 +546,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("MS Reference Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label37.Location = new System.Drawing.Point(163, 11);
+            this.label37.Location = new System.Drawing.Point(170, 0);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(157, 26);
             this.label37.TabIndex = 1;
@@ -554,6 +555,7 @@
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button3);
             this.panel2.Controls.Add(this.progressBar1);
             this.panel2.Controls.Add(this.help);
             this.panel2.Controls.Add(this.button2);
@@ -568,7 +570,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(8, 183);
+            this.progressBar1.Location = new System.Drawing.Point(8, 162);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(455, 32);
             this.progressBar1.TabIndex = 18;
@@ -580,7 +582,7 @@
             this.help.Controls.Add(this.label47);
             this.help.Controls.Add(this.label48);
             this.help.Controls.Add(this.label44);
-            this.help.Location = new System.Drawing.Point(234, 44);
+            this.help.Location = new System.Drawing.Point(234, 29);
             this.help.Name = "help";
             this.help.Size = new System.Drawing.Size(213, 100);
             this.help.TabIndex = 17;
@@ -645,7 +647,7 @@
             // button2
             // 
             this.button2.ForeColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(234, 149);
+            this.button2.Location = new System.Drawing.Point(234, 133);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(213, 23);
             this.button2.TabIndex = 16;
@@ -663,7 +665,7 @@
             this.details.Controls.Add(this.textBox2);
             this.details.Controls.Add(this.textBox1);
             this.details.Controls.Add(this.label43);
-            this.details.Location = new System.Drawing.Point(8, 44);
+            this.details.Location = new System.Drawing.Point(8, 23);
             this.details.Name = "details";
             this.details.Size = new System.Drawing.Size(208, 133);
             this.details.TabIndex = 16;
@@ -750,7 +752,7 @@
             // events
             // 
             this.events.Controls.Add(this.listBox1);
-            this.events.Location = new System.Drawing.Point(8, 221);
+            this.events.Location = new System.Drawing.Point(8, 200);
             this.events.Name = "events";
             this.events.Size = new System.Drawing.Size(457, 179);
             this.events.TabIndex = 13;
@@ -770,9 +772,9 @@
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(8, 406);
+            this.button1.Location = new System.Drawing.Point(8, 385);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(455, 41);
+            this.button1.Size = new System.Drawing.Size(208, 66);
             this.button1.TabIndex = 6;
             this.button1.Text = "Start";
             this.button1.UseVisualStyleBackColor = false;
@@ -877,6 +879,17 @@
             // RefreshInfoTimer
             // 
             this.RefreshInfoTimer.Tick += new System.EventHandler(this.RefreshInfoTimer_Tick);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.button3.Location = new System.Drawing.Point(234, 385);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(208, 66);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "View/Save Players";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // Form1
             // 
@@ -986,6 +999,7 @@
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.ToolStripMenuItem changeBackgroundColorToolStripMenuItem;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button button3;
     }
 }
 

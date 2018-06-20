@@ -25,3 +25,15 @@ D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.
 D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
 D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.exe
 D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.pdb
+D:\GitHub\MazeRepos\Project\MazeGame\obj\Debug\MazeGame.csprojAssemblyReference.cache
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\bin\Debug\MazeGame.exe.config
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\bin\Debug\MazeGame.exe
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\bin\Debug\MazeGame.pdb
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.Form1.resources
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.Properties.Resources.resources
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.csproj.GenerateResource.Cache
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.csproj.CoreCompileInputs.cache
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.exe
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.pdb
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.Form2.resources
+C:\Users\Nikola\source\repos\MazeRepos-master\Project\MazeGame\obj\Debug\MazeGame.csprojResolveAssemblyReference.cache

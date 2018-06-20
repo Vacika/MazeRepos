@@ -24,6 +24,8 @@ namespace MazeGame
         bool paused;
         bool hitblock;
         string status;
+        public string pom1;
+        public string pom2;
         public Form1()
         {
             InitializeComponent();
@@ -66,8 +68,15 @@ namespace MazeGame
         private void Finish_MouseEnter(object sender, EventArgs e)
         {
 
-            MessageBox.Show("Congratiolations you have finished the game in " + igra.getTimespan(stopwatch).ToString("mm\\:ss") + " and you have hit the blocks only " + igra.hits.ToString() + " times.");
+           if( MessageBox.Show("Congratiolations you have finished the game in " + igra.getTimespan(stopwatch).ToString("mm\\:ss") + " and you have hit the blocks only " + igra.hits.ToString() + " times. Do you want to save your score?","Save ?",MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+            {
+                loadData();
+                var form = new Form2();
+                form.ShowDialog();
+            }
+            
             StopGame();
+            
         } ///ako uspesno vleze vo finish labelata.
         private void StartGame()
         {
@@ -431,6 +440,22 @@ namespace MazeGame
                 }
             }
 
+        }
+        public void loadData()
+        {
+            int hp;
+            double sec;
+            int.TryParse(textBox3.Text, out hp);
+            sec = igra.getTimespan(stopwatch).Seconds;
+            Globals.HP = hp;
+            Globals.time = textBox1.Text;
+            Globals.score = hp / sec;
+        }
+        public void button3_Click(object sender, EventArgs e)
+        { 
+
+            var form = new Form2();
+                form.ShowDialog();
         }
     }
 }
